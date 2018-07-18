@@ -15,7 +15,7 @@
 ## Uninstall
 - UNIX based: run "bash ./install.sh destroy"
 
-## Uninstall
+## To Add a Recipe
 - curl -X POST \
   http://localhost:9999/ \
   -H 'cache-control: no-cache' \
