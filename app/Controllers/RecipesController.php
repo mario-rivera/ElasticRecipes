@@ -19,6 +19,8 @@ class RecipesController{
 
     public function getHome(Request $request, Response $response){
 
+        // would be better to bind an interface and resolve automatically
+        // don't know how to do it with this framework yet
         $finder = new RecipeFinder;
 
         $results = $finder->find(
@@ -31,7 +33,7 @@ class RecipesController{
     }
 
     public function postAdd(Request $request, Response $response){
-
+        
         $adder = new RecipeAdder;
 
         try{
