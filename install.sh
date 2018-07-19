@@ -72,6 +72,11 @@ web_up(){
     $APP_IMAGE_NAME
 }
 
+phpunit(){
+
+    docker run -it --rm -v $SCRIPT_WORKDIR:/var/www $APP_IMAGE_NAME bash -c "vendor/bin/phpunit tests"
+}
+
 destroy(){
 
     docker stop $APP_CONTAINER_NAME && docker rm $APP_CONTAINER_NAME

@@ -7,6 +7,7 @@ use Psr\Container\ContainerInterface;
 
 use App\Recipes\RecipeAdder;
 use App\Recipes\RecipeExistsException;
+use App\Recipes\InvalidArgumentsException;
 
 class AddRecipesController{
 
@@ -30,6 +31,9 @@ class AddRecipesController{
                 $request->getParsedBody()
             );
         }catch(RecipeExistsException $e){
+
+            return $response->withJson($e->getMessage(), 400);
+        }catch(InvalidArgumentsException $e){
 
             return $response->withJson($e->getMessage(), 400);
         }
