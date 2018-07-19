@@ -17,11 +17,22 @@
 
 ## To Add a Recipe
 - curl -X POST \
-  http://localhost:9999/ \
+  http://localhost:9999/recipes \
   -H 'cache-control: no-cache' \
-  -H 'content-type: application/x-www-form-urlencoded' \
-  -d 'title=mario%20burritos&description=Some%20burrito%20description&ingredients%5B%5D=egg&ingredients%5B%5D=tortilla&directions%5B%5D=do%20something%20for%205%20mins&directions%5B%5D=do%20something%20else%20for%205%20mins'
+  -H 'content-type: application/json' \
+  -d '{
+    "title": "mario-burritos",
+    "description": "Some burrito description",
+    "ingredients": [
+        "egg",
+        "tortilla"
+    ],
+    "directions": [
+        "do something for 5 mins",
+        "do something else for 5 mins"
+    ]
+}'
 
 ## To Find a Recipe
-- http://localhost:9999?title=enchiladas
-- http://localhost:9999?q=chicken
+- http://localhost:9999/recipes?title=enchiladas
+- http://localhost:9999/recipes?q=korma
