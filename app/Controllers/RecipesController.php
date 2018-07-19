@@ -16,7 +16,7 @@ class RecipesController{
         $this->container = $container;
     }
 
-    public function getHome(Request $request, Response $response){
+    public function getRecipes(Request $request, Response $response){
 
         // would be better to bind an interface and resolve automatically
         // don't know how to do it with this framework yet
