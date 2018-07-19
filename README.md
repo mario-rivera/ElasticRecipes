@@ -6,6 +6,9 @@
 - Run the installation script "bash ./install.sh install"
 - This will build the docker image and run the containers
 
+## Run Unit Tests
+- Run "bash ./install.sh phpunit"
+
 ## To Find a Recipe
 - http://localhost:9999/recipes?title=enchiladas
 - http://localhost:9999/recipes?q=korma
