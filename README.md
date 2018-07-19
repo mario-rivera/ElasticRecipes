@@ -6,14 +6,9 @@
 - Run the installation script "bash ./install.sh install"
 - This will build the docker image and run the containers
 
-## After Installation
-- Go to localhost:9999 to view the application.
-
-## Additional Notes
-- Project built with Slim
-
-## Uninstall
-- UNIX based: run "bash ./install.sh destroy"
+## To Find a Recipe
+- http://localhost:9999/recipes?title=enchiladas
+- http://localhost:9999/recipes?q=korma
 
 ## To Add a Recipe
 - curl -X POST \
@@ -33,6 +28,19 @@
     ]
 }'
 
-## To Find a Recipe
-- http://localhost:9999/recipes?title=enchiladas
-- http://localhost:9999/recipes?q=korma
+## To Update a Recipe
+- curl -X PATCH \
+  http://localhost:9999/recipes \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{"id": "mario-burritos", "title": "new mario burritos", "tags": ["main dish"]}'
+
+## To Delete a Recipe
+- curl -X DELETE \
+  http://localhost:9999/recipes \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{"id": "mario-burritos"}'
+
+## Uninstall
+- UNIX based: run "bash ./install.sh destroy"
