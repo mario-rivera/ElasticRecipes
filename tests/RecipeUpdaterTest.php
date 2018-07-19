@@ -62,4 +62,27 @@ class RecipeUpdaterTests extends TestCase
         $result = $this->instance->update($stub, ['id' => 'new recipe', 'title' => 'new title']);
         $this->assertEquals($indexResult, $result);
     }
+
+    public function testMapParamsToDoc_Array()
+    {
+
+        $params = [
+            'id' => 'id',
+            'title' => 'sometitle'
+        ];
+
+        $result = $this->invokeMethod($this->instance, 'mapParamsToDoc', array($params));
+
+        unset($params['id']);
+        $this->assertEquals($result, $params);
+    }
+
+    public function invokeMethod(&$object, $methodName, array $parameters = array())
+    {
+        $reflection = new \ReflectionClass(get_class($object));
+        $method = $reflection->getMethod($methodName);
+        $method->setAccessible(true);
+
+        return $method->invokeArgs($object, $parameters);
+    }
 }

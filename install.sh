@@ -26,6 +26,7 @@ install(){
     elastic_up
     elastic_seed
 
+    phpunit
     web_up
 }
 
